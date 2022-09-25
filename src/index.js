@@ -1,25 +1,17 @@
 import { validate } from "schema-utils";
-
 import schema from "./options.json";
 
-export const raw = true;
-
+// 调用 schema-utils 完成校验
 export default function loader(source) {
-    const { version, webpack } = this;
-
     const options = this.getOptions();
+    validate(schema, options);
 
-    validate(schema, options, "Loader");
-
-    const newSource = `
-  /**
-   * Loader API Version: ${version}
-   * Is this in "webpack mode": ${webpack}
-   */
-  /**
-   * Original Source From Loader
-   */
-  ${source}`;
-
-    return `${newSource}`;
+    return source;
 }
+
+// // Webpack5 之后还可以借助 Loader Context 的 `getOptions` 接口完成校验
+// export default function loader(source) {
+//     const options = this.getOptions(schema);
+//
+//     return source;
+// }

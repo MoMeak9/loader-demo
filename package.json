@@ -2,7 +2,9 @@
   "name": "loader-demo",
   "version": "1.0.0",
   "description": "",
-  "main": "src/index.js",
+  "license": "ISC",
+  "repository": "null/loader-custom",
+  "main": "index.js",
   "scripts": {
     "start": "npm run build -- -w",
     "clean": "del-cli dist",
@@ -13,16 +15,6 @@
     "lint": "npm-run-all -l -p \"lint:**\"",
     "prepare": "npm run build"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/MoMeak9/loader-demo.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/MoMeak9/loader-demo/issues"
-  },
-  "homepage": "https://github.com/MoMeak9/loader-demo#readme",
   "files": [
     "dist/",
     "lib/",
